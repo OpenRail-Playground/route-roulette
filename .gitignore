@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# Data files (large / potentially sensitive)
+data/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Generated outputs
+*.png
+section_summary.png
+section_heatmap.png
+
+# OS
+.DS_Store
