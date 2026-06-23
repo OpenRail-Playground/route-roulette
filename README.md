@@ -40,24 +40,55 @@ route-roulette/
 
 ### Prerequisites
 
-- Python 3.12+
-- [Poetry](https://python-poetry.org/) (`pip install poetry` or follow the [official guide](https://python-poetry.org/docs/#installation))
+| Requirement | Version | Notes |
+|---|---|---|
+| Python | 3.12+ | [python.org](https://www.python.org/downloads/) — on Windows, tick **"Add Python to PATH"** during install |
+| Poetry | latest | Dependency manager — see install commands below |
+| Git | any | [git-scm.com](https://git-scm.com/) |
 
-### Setup
+**Install Poetry:**
+
+- **Linux / macOS:**
+  ```bash
+  curl -sSL https://install.python-poetry.org | python3 -
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+  ```
+  After install, add Poetry to your PATH if prompted (usually `%APPDATA%\Python\Scripts`).
+
+---
+
+### Setup — Linux / macOS
 
 ```bash
 git clone https://github.com/OpenRail-Playground/route-roulette.git
 cd route-roulette
 
-# Install dependencies into a local .venv
+# Keep the virtual environment inside the project folder
 poetry config virtualenvs.in-project true
 poetry install
 
-# Launch Jupyter
+# Place data files (see Repository structure above), then launch Jupyter
 poetry run jupyter notebook route_roulette_analysis.ipynb
 ```
 
-Then place the data files under `data/version_limited_ressources/C200/` and run all cells.
+### Setup — Windows (Command Prompt or PowerShell)
+
+```powershell
+git clone https://github.com/OpenRail-Playground/route-roulette.git
+cd route-roulette
+
+# Keep the virtual environment inside the project folder
+poetry config virtualenvs.in-project true
+poetry install
+
+# Place data files (see Repository structure above), then launch Jupyter
+poetry run jupyter notebook route_roulette_analysis.ipynb
+```
+
+> **Data files:** copy the provided `.xlsx` files into `data\version_limited_resources\C200\` (create the folders if they don't exist), then run all cells in the notebook.
 
 ## License
 
