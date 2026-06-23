@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_cda99b4eabaa1548639475f9017d4894 {
+                #map_3f5e6a6ce02a45ffcd6d90106bc6077b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,14 +55,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_cda99b4eabaa1548639475f9017d4894" ></div>
+            <div class="folium-map" id="map_3f5e6a6ce02a45ffcd6d90106bc6077b" ></div>
         
 </body>
 <script>
     
     
-            var map_cda99b4eabaa1548639475f9017d4894 = L.map(
-                "map_cda99b4eabaa1548639475f9017d4894",
+            var map_3f5e6a6ce02a45ffcd6d90106bc6077b = L.map(
+                "map_3f5e6a6ce02a45ffcd6d90106bc6077b",
                 {
                     center: [47.1, 7.1],
                     crs: L.CRS.EPSG3857,
@@ -79,7 +79,7 @@
 
         
     
-            var tile_layer_947fbe63eb035802665af3dc4ab218d7 = L.tileLayer(
+            var tile_layer_95ab8c814e7ed15dab6b0296f83a9b05 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -96,46 +96,46 @@
             );
         
     
-            tile_layer_947fbe63eb035802665af3dc4ab218d7.addTo(map_cda99b4eabaa1548639475f9017d4894);
+            tile_layer_95ab8c814e7ed15dab6b0296f83a9b05.addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-    var color_map_83849c22414cd86eac806d38ad902cb7 = {};
+    var color_map_a8599e9d370f248e1f6d6142e09f73d6 = {};
 
     
-    color_map_83849c22414cd86eac806d38ad902cb7.color = d3.scale.threshold()
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.color = d3.scale.threshold()
               .domain([1.0, 1.0080160320641283, 1.0160320641282565, 1.0240480961923848, 1.032064128256513, 1.0400801603206413, 1.0480961923847696, 1.0561122244488979, 1.0641282565130261, 1.0721442885771544, 1.0801603206412826, 1.088176352705411, 1.0961923847695392, 1.1042084168336674, 1.1122244488977957, 1.1202404809619237, 1.128256513026052, 1.1362725450901803, 1.1442885771543085, 1.1523046092184368, 1.160320641282565, 1.1683366733466933, 1.1763527054108216, 1.1843687374749499, 1.1923847695390781, 1.2004008016032064, 1.2084168336673347, 1.216432865731463, 1.2244488977955912, 1.2324649298597194, 1.2404809619238477, 1.248496993987976, 1.2565130260521042, 1.2645290581162325, 1.2725450901803608, 1.280561122244489, 1.2885771543086173, 1.2965931863727456, 1.3046092184368738, 1.3126252505010019, 1.3206412825651301, 1.3286573146292584, 1.3366733466933867, 1.344689378757515, 1.3527054108216432, 1.3607214428857715, 1.3687374749498997, 1.376753507014028, 1.3847695390781563, 1.3927855711422845, 1.4008016032064128, 1.408817635270541, 1.4168336673346693, 1.4248496993987976, 1.4328657314629258, 1.440881763527054, 1.4488977955911824, 1.4569138276553106, 1.464929859719439, 1.4729458917835672, 1.4809619238476954, 1.4889779559118237, 1.496993987975952, 1.5050100200400802, 1.5130260521042085, 1.5210420841683367, 1.529058116232465, 1.5370741482965933, 1.5450901803607215, 1.5531062124248498, 1.561122244488978, 1.5691382765531063, 1.5771543086172346, 1.5851703406813629, 1.5931863727454911, 1.6012024048096194, 1.6092184368737477, 1.6172344689378757, 1.625250501002004, 1.6332665330661322, 1.6412825651302605, 1.6492985971943888, 1.657314629258517, 1.6653306613226453, 1.6733466933867736, 1.6813627254509018, 1.68937875751503, 1.6973947895791583, 1.7054108216432866, 1.7134268537074149, 1.7214428857715431, 1.7294589178356712, 1.7374749498997994, 1.7454909819639277, 1.753507014028056, 1.7615230460921842, 1.7695390781563125, 1.7775551102204408, 1.785571142284569, 1.7935871743486973, 1.8016032064128256, 1.8096192384769538, 1.817635270541082, 1.8256513026052104, 1.8336673346693386, 1.8416833667334669, 1.8496993987975952, 1.8577154308617234, 1.8657314629258517, 1.87374749498998, 1.8817635270541082, 1.8897795591182365, 1.8977955911823647, 1.905811623246493, 1.9138276553106213, 1.9218436873747495, 1.9298597194388778, 1.937875751503006, 1.9458917835671343, 1.9539078156312626, 1.9619238476953909, 1.9699398797595191, 1.9779559118236474, 1.9859719438877756, 1.993987975951904, 2.0020040080160317, 2.0100200400801604, 2.0180360721442883, 2.026052104208417, 2.034068136272545, 2.0420841683366735, 2.0501002004008013, 2.05811623246493, 2.066132264529058, 2.0741482965931866, 2.0821643286573144, 2.090180360721443, 2.098196392785571, 2.1062124248496996, 2.1142284569138274, 2.122244488977956, 2.130260521042084, 2.1382765531062127, 2.1462925851703405, 2.154308617234469, 2.162324649298597, 2.1703406813627257, 2.1783567134268536, 2.1863727454909823, 2.19438877755511, 2.202404809619239, 2.2104208416833666, 2.2184368737474953, 2.226452905811623, 2.2344689378757514, 2.2424849699398797, 2.250501002004008, 2.258517034068136, 2.2665330661322645, 2.2745490981963927, 2.282565130260521, 2.2905811623246493, 2.2985971943887775, 2.306613226452906, 2.314629258517034, 2.3226452905811623, 2.3306613226452906, 2.338677354709419, 2.346693386773547, 2.3547094188376754, 2.3627254509018036, 2.370741482965932, 2.37875751503006, 2.3867735470941884, 2.3947895791583167, 2.402805611222445, 2.4108216432865732, 2.4188376753507015, 2.4268537074148298, 2.434869739478958, 2.4428857715430863, 2.4509018036072145, 2.4589178356713424, 2.466933867735471, 2.474949899799599, 2.4829659318637276, 2.4909819639278554, 2.498997995991984, 2.507014028056112, 2.5150300601202407, 2.5230460921843685, 2.531062124248497, 2.539078156312625, 2.5470941883767537, 2.5551102204408815, 2.5631262525050102, 2.571142284569138, 2.579158316633267, 2.5871743486973946, 2.5951903807615233, 2.603206412825651, 2.61122244488978, 2.6192384769539077, 2.6272545090180364, 2.635270541082164, 2.643286573146293, 2.6513026052104207, 2.6593186372745494, 2.6673346693386772, 2.6753507014028055, 2.6833667334669338, 2.691382765531062, 2.6993987975951903, 2.7074148296593186, 2.715430861723447, 2.723446893787575, 2.7314629258517034, 2.7394789579158316, 2.74749498997996, 2.755511022044088, 2.7635270541082164, 2.7715430861723447, 2.779559118236473, 2.787575150300601, 2.7955911823647295, 2.8036072144288577, 2.811623246492986, 2.8196392785571143, 2.8276553106212425, 2.835671342685371, 2.843687374749499, 2.8517034068136273, 2.8597194388777556, 2.867735470941884, 2.875751503006012, 2.8837675350701404, 2.8917835671342687, 2.8997995991983965, 2.907815631262525, 2.915831663326653, 2.9238476953907817, 2.9318637274549095, 2.9398797595190382, 2.947895791583166, 2.9559118236472948, 2.9639278557114226, 2.9719438877755513, 2.979959919839679, 2.987975951903808, 2.9959919839679356, 3.004008016032064, 3.012024048096192, 3.0200400801603204, 3.0280561122244487, 3.036072144288577, 3.0440881763527052, 3.0521042084168335, 3.0601202404809618, 3.06813627254509, 3.0761523046092183, 3.0841683366733466, 3.092184368737475, 3.100200400801603, 3.1082164328657313, 3.1162324649298596, 3.124248496993988, 3.132264529058116, 3.1402805611222444, 3.1482965931863727, 3.156312625250501, 3.164328657314629, 3.1723446893787575, 3.1803607214428857, 3.188376753507014, 3.1963927855711423, 3.2044088176352705, 3.212424849699399, 3.220440881763527, 3.2284569138276553, 3.2364729458917836, 3.244488977955912, 3.25250501002004, 3.2605210420841684, 3.2685370741482966, 3.276553106212425, 3.284569138276553, 3.2925851703406814, 3.3006012024048097, 3.308617234468938, 3.3166332665330662, 3.3246492985971945, 3.3326653306613228, 3.340681362725451, 3.3486973947895793, 3.3567134268537075, 3.364729458917836, 3.372745490981964, 3.3807615230460923, 3.3887775551102206, 3.396793587174349, 3.404809619238477, 3.4128256513026054, 3.4208416833667337, 3.428857715430862, 3.43687374749499, 3.444889779559118, 3.4529058116232463, 3.4609218436873745, 3.468937875751503, 3.476953907815631, 3.4849699398797593, 3.4929859719438876, 3.501002004008016, 3.509018036072144, 3.5170340681362724, 3.5250501002004007, 3.533066132264529, 3.541082164328657, 3.5490981963927855, 3.5571142284569137, 3.565130260521042, 3.5731462925851702, 3.5811623246492985, 3.5891783567134268, 3.597194388777555, 3.6052104208416833, 3.6132264529058116, 3.62124248496994, 3.629258517034068, 3.6372745490981964, 3.6452905811623246, 3.653306613226453, 3.661322645290581, 3.6693386773547094, 3.6773547094188377, 3.685370741482966, 3.693386773547094, 3.7014028056112225, 3.7094188376753507, 3.717434869739479, 3.7254509018036073, 3.7334669338677355, 3.741482965931864, 3.749498997995992, 3.7575150300601203, 3.7655310621242486, 3.773547094188377, 3.781563126252505, 3.7895791583166334, 3.7975951903807617, 3.80561122244489, 3.813627254509018, 3.8216432865731464, 3.8296593186372747, 3.837675350701403, 3.8456913827655312, 3.8537074148296595, 3.8617234468937878, 3.869739478957916, 3.8777555110220443, 3.8857715430861726, 3.8937875751503004, 3.9018036072144286, 3.909819639278557, 3.917835671342685, 3.9258517034068134, 3.9338677354709417, 3.94188376753507, 3.9498997995991982, 3.9579158316633265, 3.9659318637274548, 3.973947895791583, 3.9819639278557113, 3.9899799599198396, 3.997995991983968, 4.006012024048096, 4.014028056112224, 4.022044088176353, 4.030060120240481, 4.038076152304609, 4.046092184368737, 4.054108216432866, 4.062124248496994, 4.070140280561122, 4.07815631262525, 4.086172344689379, 4.094188376753507, 4.102204408817635, 4.110220440881763, 4.118236472945892, 4.1262525050100205, 4.134268537074148, 4.142284569138276, 4.150300601202405, 4.158316633266534, 4.166332665330661, 4.174348697394789, 4.182364729458918, 4.190380761523047, 4.198396793587174, 4.206412825651302, 4.214428857715431, 4.22244488977956, 4.2304609218436875, 4.238476953907815, 4.246492985971944, 4.254509018036073, 4.2625250501002006, 4.270541082164328, 4.278557114228457, 4.286573146292586, 4.294589178356714, 4.302605210420841, 4.31062124248497, 4.318637274549099, 4.326653306613227, 4.3346693386773545, 4.342685370741483, 4.350701402805611, 4.358717434869739, 4.3667334669338675, 4.374749498997996, 4.382765531062124, 4.390781563126252, 4.398797595190381, 4.406813627254509, 4.414829659318637, 4.422845691382765, 4.430861723446894, 4.438877755511022, 4.44689378757515, 4.454909819639278, 4.462925851703407, 4.470941883767535, 4.478957915831663, 4.486973947895791, 4.49498997995992, 4.5030060120240485, 4.511022044088176, 4.519038076152304, 4.527054108216433, 4.5350701402805615, 4.543086172344689, 4.551102204408817, 4.559118236472946, 4.567134268537075, 4.575150300601202, 4.58316633266533, 4.591182364729459, 4.599198396793588, 4.6072144288577155, 4.615230460921843, 4.623246492985972, 4.631262525050101, 4.6392785571142285, 4.647294589178356, 4.655310621242485, 4.663326653306614, 4.671342685370742, 4.679358717434869, 4.687374749498998, 4.695390781563127, 4.703406813627255, 4.7114228456913825, 4.719438877755511, 4.72745490981964, 4.735470941883768, 4.7434869739478955, 4.751503006012024, 4.759519038076153, 4.767535070140281, 4.775551102204409, 4.783567134268537, 4.791583166332665, 4.799599198396793, 4.807615230460922, 4.81563126252505, 4.823647294589178, 4.831663326653306, 4.839679358717435, 4.847695390781563, 4.855711422845691, 4.863727454909819, 4.871743486973948, 4.8797595190380765, 4.887775551102204, 4.895791583166332, 4.903807615230461, 4.9118236472945895, 4.919839679358717, 4.927855711422845, 4.935871743486974, 4.943887775551103, 4.95190380761523, 4.959919839679358, 4.967935871743487, 4.975951903807616, 4.9839679358717435, 4.991983967935871, 5.0])
               .range(['#2ecc71ff', '#2ecc71ff', '#2fcc70ff', '#30cc70ff', '#31cc6fff', '#32cc6fff', '#32cc6fff', '#33cc6eff', '#34cc6eff', '#35cc6dff', '#36cc6dff', '#36cc6dff', '#37cc6cff', '#38cc6cff', '#39cc6bff', '#39cc6bff', '#3acc6bff', '#3bcc6aff', '#3ccc6aff', '#3dcc69ff', '#3dcc69ff', '#3ecc69ff', '#3fcc68ff', '#40cc68ff', '#41cc67ff', '#41cb67ff', '#42cb67ff', '#43cb66ff', '#44cb66ff', '#44cb66ff', '#45cb65ff', '#46cb65ff', '#47cb64ff', '#48cb64ff', '#48cb64ff', '#49cb63ff', '#4acb63ff', '#4bcb62ff', '#4bcb62ff', '#4ccb62ff', '#4dcb61ff', '#4ecb61ff', '#4fcb60ff', '#4fcb60ff', '#50cb60ff', '#51cb5fff', '#52cb5fff', '#53cb5eff', '#53cb5eff', '#54cb5eff', '#55cb5dff', '#56cb5dff', '#56cb5cff', '#57cb5cff', '#58cb5cff', '#59cb5bff', '#5aca5bff', '#5aca5aff', '#5bca5aff', '#5cca5aff', '#5dca59ff', '#5eca59ff', '#5eca58ff', '#5fca58ff', '#60ca58ff', '#61ca57ff', '#61ca57ff', '#62ca57ff', '#63ca56ff', '#64ca56ff', '#65ca55ff', '#65ca55ff', '#66ca55ff', '#67ca54ff', '#68ca54ff', '#69ca53ff', '#69ca53ff', '#6aca53ff', '#6bca52ff', '#6cca52ff', '#6cca51ff', '#6dca51ff', '#6eca51ff', '#6fca50ff', '#70ca50ff', '#70ca4fff', '#71ca4fff', '#72c94fff', '#73c94eff', '#74c94eff', '#74c94dff', '#75c94dff', '#76c94dff', '#77c94cff', '#77c94cff', '#78c94bff', '#79c94bff', '#7ac94bff', '#7bc94aff', '#7bc94aff', '#7cc94aff', '#7dc949ff', '#7ec949ff', '#7ec948ff', '#7fc948ff', '#80c948ff', '#81c947ff', '#82c947ff', '#82c946ff', '#83c946ff', '#84c946ff', '#85c945ff', '#86c945ff', '#86c944ff', '#87c944ff', '#88c944ff', '#89c943ff', '#89c943ff', '#8ac942ff', '#8bc842ff', '#8cc842ff', '#8dc841ff', '#8dc841ff', '#8ec840ff', '#8fc840ff', '#90c840ff', '#91c83fff', '#91c83fff', '#92c83eff', '#93c83eff', '#94c83eff', '#94c83dff', '#95c83dff', '#96c83cff', '#97c83cff', '#98c83cff', '#98c83bff', '#99c83bff', '#9ac83bff', '#9bc83aff', '#9cc83aff', '#9cc839ff', '#9dc839ff', '#9ec839ff', '#9fc838ff', '#9fc838ff', '#a0c837ff', '#a1c837ff', '#a2c837ff', '#a3c836ff', '#a3c736ff', '#a4c735ff', '#a5c735ff', '#a6c735ff', '#a7c734ff', '#a7c734ff', '#a8c733ff', '#a9c733ff', '#aac733ff', '#aac732ff', '#abc732ff', '#acc731ff', '#adc731ff', '#aec731ff', '#aec730ff', '#afc730ff', '#b0c72fff', '#b1c72fff', '#b1c72fff', '#b2c72eff', '#b3c72eff', '#b4c72eff', '#b5c72dff', '#b5c72dff', '#b6c72cff', '#b7c72cff', '#b8c72cff', '#b9c72bff', '#b9c72bff', '#bac72aff', '#bbc72aff', '#bcc62aff', '#bcc629ff', '#bdc629ff', '#bec628ff', '#bfc628ff', '#c0c628ff', '#c0c627ff', '#c1c627ff', '#c2c626ff', '#c3c626ff', '#c4c626ff', '#c4c625ff', '#c5c625ff', '#c6c624ff', '#c7c624ff', '#c7c624ff', '#c8c623ff', '#c9c623ff', '#cac622ff', '#cbc622ff', '#cbc622ff', '#ccc621ff', '#cdc621ff', '#cec621ff', '#cfc620ff', '#cfc620ff', '#d0c61fff', '#d1c61fff', '#d2c61fff', '#d2c61eff', '#d3c61eff', '#d4c51dff', '#d5c51dff', '#d6c51dff', '#d6c51cff', '#d7c51cff', '#d8c51bff', '#d9c51bff', '#dac51bff', '#dac51aff', '#dbc51aff', '#dcc519ff', '#ddc519ff', '#ddc519ff', '#dec518ff', '#dfc518ff', '#e0c517ff', '#e1c517ff', '#e1c517ff', '#e2c516ff', '#e3c516ff', '#e4c515ff', '#e4c515ff', '#e5c515ff', '#e6c514ff', '#e7c514ff', '#e8c513ff', '#e8c513ff', '#e9c513ff', '#eac512ff', '#ebc512ff', '#ecc512ff', '#ecc411ff', '#edc411ff', '#eec410ff', '#efc410ff', '#efc410ff', '#f0c40fff', '#f1c40fff', '#f1c40fff', '#f1c40fff', '#f1c30fff', '#f1c30fff', '#f1c20fff', '#f1c210ff', '#f1c110ff', '#f1c110ff', '#f1c010ff', '#f1c010ff', '#f1bf10ff', '#f1bf11ff', '#f1be11ff', '#f1be11ff', '#f1bd11ff', '#f1bd11ff', '#f1bc12ff', '#f1bc12ff', '#f1bb12ff', '#f1bb12ff', '#f1ba12ff', '#f1ba12ff', '#f1b913ff', '#f0b913ff', '#f0b813ff', '#f0b813ff', '#f0b713ff', '#f0b714ff', '#f0b714ff', '#f0b614ff', '#f0b614ff', '#f0b514ff', '#f0b514ff', '#f0b415ff', '#f0b415ff', '#f0b315ff', '#f0b315ff', '#f0b215ff', '#f0b216ff', '#f0b116ff', '#f0b116ff', '#f0b016ff', '#f0b016ff', '#f0af16ff', '#f0af17ff', '#f0ae17ff', '#f0ae17ff', '#f0ad17ff', '#efad17ff', '#efac18ff', '#efac18ff', '#efab18ff', '#efab18ff', '#efaa18ff', '#efaa18ff', '#efa919ff', '#efa919ff', '#efa919ff', '#efa819ff', '#efa819ff', '#efa71aff', '#efa71aff', '#efa61aff', '#efa61aff', '#efa51aff', '#efa51aff', '#efa41bff', '#efa41bff', '#efa31bff', '#efa31bff', '#efa21bff', '#efa21cff', '#efa11cff', '#eea11cff', '#eea01cff', '#eea01cff', '#ee9f1cff', '#ee9f1dff', '#ee9e1dff', '#ee9e1dff', '#ee9d1dff', '#ee9d1dff', '#ee9c1dff', '#ee9c1eff', '#ee9b1eff', '#ee9b1eff', '#ee9b1eff', '#ee9a1eff', '#ee9a1fff', '#ee991fff', '#ee991fff', '#ee981fff', '#ee981fff', '#ee971fff', '#ee9720ff', '#ee9620ff', '#ee9620ff', '#ee9520ff', '#ed9520ff', '#ed9421ff', '#ed9421ff', '#ed9321ff', '#ed9321ff', '#ed9221ff', '#ed9221ff', '#ed9122ff', '#ed9122ff', '#ed9022ff', '#ed9022ff', '#ed8f22ff', '#ed8f23ff', '#ed8e23ff', '#ed8e23ff', '#ed8d23ff', '#ed8d23ff', '#ed8c23ff', '#ed8c24ff', '#ed8c24ff', '#ed8b24ff', '#ed8b24ff', '#ed8a24ff', '#ed8a25ff', '#ed8925ff', '#ec8925ff', '#ec8825ff', '#ec8825ff', '#ec8725ff', '#ec8726ff', '#ec8626ff', '#ec8626ff', '#ec8526ff', '#ec8526ff', '#ec8427ff', '#ec8427ff', '#ec8327ff', '#ec8327ff', '#ec8227ff', '#ec8227ff', '#ec8128ff', '#ec8128ff', '#ec8028ff', '#ec8028ff', '#ec7f28ff', '#ec7f29ff', '#ec7e29ff', '#ec7e29ff', '#ec7e29ff', '#ec7d29ff', '#eb7d29ff', '#eb7c2aff', '#eb7c2aff', '#eb7b2aff', '#eb7b2aff', '#eb7a2aff', '#eb7a2bff', '#eb792bff', '#eb792bff', '#eb782bff', '#eb782bff', '#eb772bff', '#eb772cff', '#eb762cff', '#eb762cff', '#eb752cff', '#eb752cff', '#eb742dff', '#eb742dff', '#eb732dff', '#eb732dff', '#eb722dff', '#eb722dff', '#eb712eff', '#eb712eff', '#ea702eff', '#ea702eff', '#ea702eff', '#ea6f2fff', '#ea6f2fff', '#ea6e2fff', '#ea6e2fff', '#ea6d2fff', '#ea6d2fff', '#ea6c30ff', '#ea6c30ff', '#ea6b30ff', '#ea6b30ff', '#ea6a30ff', '#ea6a31ff', '#ea6931ff', '#ea6931ff', '#ea6831ff', '#ea6831ff', '#ea6731ff', '#ea6732ff', '#ea6632ff', '#ea6632ff', '#ea6532ff', '#e96532ff', '#e96433ff', '#e96433ff', '#e96333ff', '#e96333ff', '#e96233ff', '#e96233ff', '#e96234ff', '#e96134ff', '#e96134ff', '#e96034ff', '#e96034ff', '#e95f34ff', '#e95f35ff', '#e95e35ff', '#e95e35ff', '#e95d35ff', '#e95d35ff', '#e95c36ff', '#e95c36ff', '#e95b36ff', '#e95b36ff', '#e95a36ff', '#e95a36ff', '#e95937ff', '#e85937ff', '#e85837ff', '#e85837ff', '#e85737ff', '#e85738ff', '#e85638ff', '#e85638ff', '#e85538ff', '#e85538ff', '#e85438ff', '#e85439ff', '#e85439ff', '#e85339ff', '#e85339ff', '#e85239ff', '#e8523aff', '#e8513aff', '#e8513aff', '#e8503aff', '#e8503aff', '#e84f3aff', '#e84f3bff', '#e84e3bff', '#e84e3bff', '#e84d3bff', '#e74d3bff', '#e74c3cff', '#e74c3cff']);
     
 
-    color_map_83849c22414cd86eac806d38ad902cb7.x = d3.scale.linear()
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.x = d3.scale.linear()
               .domain([1.0, 5.0])
               .range([0, 450 - 50]);
 
-    color_map_83849c22414cd86eac806d38ad902cb7.legend = L.control({position: 'topright'});
-    color_map_83849c22414cd86eac806d38ad902cb7.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
-    color_map_83849c22414cd86eac806d38ad902cb7.legend.addTo(map_cda99b4eabaa1548639475f9017d4894);
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.legend = L.control({position: 'topright'});
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.legend.addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
 
-    color_map_83849c22414cd86eac806d38ad902cb7.xAxis = d3.svg.axis()
-        .scale(color_map_83849c22414cd86eac806d38ad902cb7.x)
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.xAxis = d3.svg.axis()
+        .scale(color_map_a8599e9d370f248e1f6d6142e09f73d6.x)
         .orient("top")
         .tickSize(1)
         .tickValues([1.0, 3.0, 5.0]);
 
-    color_map_83849c22414cd86eac806d38ad902cb7.svg = d3.select(".legend.leaflet-control").append("svg")
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.svg = d3.select(".legend.leaflet-control").append("svg")
         .attr("id", 'legend')
         .attr("width", 450)
         .attr("height", 40);
 
-    color_map_83849c22414cd86eac806d38ad902cb7.g = color_map_83849c22414cd86eac806d38ad902cb7.svg.append("g")
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.g = color_map_a8599e9d370f248e1f6d6142e09f73d6.svg.append("g")
         .attr("class", "key")
         .attr("fill", "black")
         .attr("transform", "translate(25,16)");
 
-    color_map_83849c22414cd86eac806d38ad902cb7.g.selectAll("rect")
-        .data(color_map_83849c22414cd86eac806d38ad902cb7.color.range().map(function(d, i) {
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.g.selectAll("rect")
+        .data(color_map_a8599e9d370f248e1f6d6142e09f73d6.color.range().map(function(d, i) {
           return {
-            x0: i ? color_map_83849c22414cd86eac806d38ad902cb7.x(color_map_83849c22414cd86eac806d38ad902cb7.color.domain()[i - 1]) : color_map_83849c22414cd86eac806d38ad902cb7.x.range()[0],
-            x1: i < color_map_83849c22414cd86eac806d38ad902cb7.color.domain().length ? color_map_83849c22414cd86eac806d38ad902cb7.x(color_map_83849c22414cd86eac806d38ad902cb7.color.domain()[i]) : color_map_83849c22414cd86eac806d38ad902cb7.x.range()[1],
+            x0: i ? color_map_a8599e9d370f248e1f6d6142e09f73d6.x(color_map_a8599e9d370f248e1f6d6142e09f73d6.color.domain()[i - 1]) : color_map_a8599e9d370f248e1f6d6142e09f73d6.x.range()[0],
+            x1: i < color_map_a8599e9d370f248e1f6d6142e09f73d6.color.domain().length ? color_map_a8599e9d370f248e1f6d6142e09f73d6.x(color_map_a8599e9d370f248e1f6d6142e09f73d6.color.domain()[i]) : color_map_a8599e9d370f248e1f6d6142e09f73d6.x.range()[1],
             z: d
           };
         }))
@@ -145,19 +145,19 @@
         .attr("width", function(d) { return d.x1 - d.x0; })
         .style("fill", function(d) { return d.z; });
 
-    color_map_83849c22414cd86eac806d38ad902cb7.g.call(color_map_83849c22414cd86eac806d38ad902cb7.xAxis).append("text")
+    color_map_a8599e9d370f248e1f6d6142e09f73d6.g.call(color_map_a8599e9d370f248e1f6d6142e09f73d6.xAxis).append("text")
         .attr("class", "caption")
         .attr("y", 21)
         .attr("fill", "black")
         .text("Condition score  1 = best (green) \u00b7 5 = worst (red)");
     
-            var circle_marker_394f55326eaa8f7c58f6a5a8659678cf = L.circleMarker(
+            var circle_marker_4de577ea763154d463a593e5bed0118f = L.circleMarker(
                 [46.5331, 6.5858],
                 {"bubblingMouseEvents": true, "color": "#70ca50ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#70ca50ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_394f55326eaa8f7c58f6a5a8659678cf.bindTooltip(
+            circle_marker_4de577ea763154d463a593e5bed0118f.bindTooltip(
                 `<div>
                      <b>Renens - Bussigny</b><br>Condition score: <b>1.68</b><br>Renewal (ER): 39.14 MCHF<br>Maintenance: 0.43 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -167,13 +167,13 @@
             );
         
     
-            var circle_marker_94e6b1a173e8c9467f9fab04a5e82aef = L.circleMarker(
+            var circle_marker_e5f4883133d13a6a4ed07bb44f7c5c0a = L.circleMarker(
                 [46.7136, 6.3717],
                 {"bubblingMouseEvents": true, "color": "#f1bf10ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1bf10ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_94e6b1a173e8c9467f9fab04a5e82aef.bindTooltip(
+            circle_marker_e5f4883133d13a6a4ed07bb44f7c5c0a.bindTooltip(
                 `<div>
                      <b>Le Day - Vallorbe</b><br>Condition score: <b>3.08</b><br>Renewal (ER): 8.76 MCHF<br>Maintenance: 2.66 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -183,13 +183,13 @@
             );
         
     
-            var circle_marker_8bd228190446ceed1273fd532581d6a8 = L.circleMarker(
+            var circle_marker_5071c66f67772c4bedaf745feaf631d8 = L.circleMarker(
                 [46.7136, 6.3717],
                 {"bubblingMouseEvents": true, "color": "#e4c516ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4c516ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_8bd228190446ceed1273fd532581d6a8.bindTooltip(
+            circle_marker_5071c66f67772c4bedaf745feaf631d8.bindTooltip(
                 `<div>
                      <b>Vallorbe communauté</b><br>Condition score: <b>2.86</b><br>Renewal (ER): 14.40 MCHF<br>Maintenance: 0.65 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -199,13 +199,13 @@
             );
         
     
-            var poly_line_0749ec1b77577e351fd370f25d916cbf = L.polyline(
+            var poly_line_02289ed53308c0de3de07c01d3e559b0 = L.polyline(
                 [[46.7136, 6.3717], [46.7136, 6.3717]],
                 {"bubblingMouseEvents": true, "color": "#96c83dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#96c83dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_0749ec1b77577e351fd370f25d916cbf.bindTooltip(
+            poly_line_02289ed53308c0de3de07c01d3e559b0.bindTooltip(
                 `<div>
                      <b>Vallorbe frontière - Vallorbe</b><br>Condition score: <b>2.07</b><br>Renewal (ER): 12.54 MCHF<br>Maintenance: 0.24 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -215,13 +215,13 @@
             );
         
     
-            var circle_marker_09f5e63fd20ecef8343263fc7688ce92 = L.circleMarker(
+            var circle_marker_54ec41d8457326511f5e3d69e319eae1 = L.circleMarker(
                 [46.7136, 6.3717],
                 {"bubblingMouseEvents": true, "color": "#96c83dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#96c83dff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_09f5e63fd20ecef8343263fc7688ce92.bindTooltip(
+            circle_marker_54ec41d8457326511f5e3d69e319eae1.bindTooltip(
                 `<div>
                      <b>Vallorbe frontière - Vallorbe</b><br>Condition score: <b>2.07</b><br>Renewal (ER): 12.54 MCHF<br>Maintenance: 0.24 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -231,13 +231,13 @@
             );
         
     
-            var circle_marker_a14919933851b7d265528d293d453856 = L.circleMarker(
+            var circle_marker_287e8a5898bf9914e138c821d0400f4d = L.circleMarker(
                 [46.7136, 6.3717],
                 {"bubblingMouseEvents": true, "color": "#96c83dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#96c83dff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_a14919933851b7d265528d293d453856.bindTooltip(
+            circle_marker_287e8a5898bf9914e138c821d0400f4d.bindTooltip(
                 `<div>
                      <b>Vallorbe frontière - Vallorbe</b><br>Condition score: <b>2.07</b><br>Renewal (ER): 12.54 MCHF<br>Maintenance: 0.24 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -247,13 +247,13 @@
             );
         
     
-            var poly_line_a52e94e286725de5e5acba930a187dc4 = L.polyline(
+            var poly_line_6d94e54694bccd258d8ccfdb2e525619 = L.polyline(
                 [[47.0002, 6.9327], [47.0956, 6.8275], [47.0558, 7.067], [47.0956, 6.8275]],
                 {"bubblingMouseEvents": true, "color": "#dec518ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#dec518ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_a52e94e286725de5e5acba930a187dc4.bindTooltip(
+            poly_line_6d94e54694bccd258d8ccfdb2e525619.bindTooltip(
                 `<div>
                      <b>Neuchâtel - La Chaux-de-Fonds</b><br>Condition score: <b>2.80</b><br>Renewal (ER): 175.79 MCHF<br>Maintenance: 4.63 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -263,13 +263,13 @@
             );
         
     
-            var circle_marker_9a4beeb961ec7f5d6809cb5e0706eb88 = L.circleMarker(
+            var circle_marker_00e49d96aa64ce233faa9ff35cf371df = L.circleMarker(
                 [47.0002, 6.9327],
                 {"bubblingMouseEvents": true, "color": "#dec518ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dec518ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_9a4beeb961ec7f5d6809cb5e0706eb88.bindTooltip(
+            circle_marker_00e49d96aa64ce233faa9ff35cf371df.bindTooltip(
                 `<div>
                      <b>Neuchâtel - La Chaux-de-Fonds</b><br>Condition score: <b>2.80</b><br>Renewal (ER): 175.79 MCHF<br>Maintenance: 4.63 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -279,13 +279,13 @@
             );
         
     
-            var circle_marker_be27ffb7ecf0e56026954bbf4d1ded80 = L.circleMarker(
+            var circle_marker_c5d27cd9765f16a88af97863bd74e5de = L.circleMarker(
                 [47.0956, 6.8275],
                 {"bubblingMouseEvents": true, "color": "#dec518ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dec518ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_be27ffb7ecf0e56026954bbf4d1ded80.bindTooltip(
+            circle_marker_c5d27cd9765f16a88af97863bd74e5de.bindTooltip(
                 `<div>
                      <b>Neuchâtel - La Chaux-de-Fonds</b><br>Condition score: <b>2.80</b><br>Renewal (ER): 175.79 MCHF<br>Maintenance: 4.63 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -295,13 +295,13 @@
             );
         
     
-            var poly_line_c5fe872ad65c47d53b59f902abbd4be0 = L.polyline(
+            var poly_line_33ee12a48f1ffaa6821b83e44a7b4c57 = L.polyline(
                 [[47.0956, 6.8275], [47.0558, 7.067], [47.0956, 6.8275]],
                 {"bubblingMouseEvents": true, "color": "#f0b714ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f0b714ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_c5fe872ad65c47d53b59f902abbd4be0.bindTooltip(
+            poly_line_33ee12a48f1ffaa6821b83e44a7b4c57.bindTooltip(
                 `<div>
                      <b>La Chaux-de-Fonds</b><br>Condition score: <b>3.23</b><br>Renewal (ER): 1.06 MCHF<br>Maintenance: 1.52 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -311,13 +311,13 @@
             );
         
     
-            var circle_marker_bc714a282d4d82ad84469bbe81dc40a5 = L.circleMarker(
+            var circle_marker_00c1dc0f5af8a978e05f4346d97aefa6 = L.circleMarker(
                 [47.0956, 6.8275],
                 {"bubblingMouseEvents": true, "color": "#f0b714ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f0b714ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_bc714a282d4d82ad84469bbe81dc40a5.bindTooltip(
+            circle_marker_00c1dc0f5af8a978e05f4346d97aefa6.bindTooltip(
                 `<div>
                      <b>La Chaux-de-Fonds</b><br>Condition score: <b>3.23</b><br>Renewal (ER): 1.06 MCHF<br>Maintenance: 1.52 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -327,13 +327,13 @@
             );
         
     
-            var circle_marker_b2e1d301be2331797507f9b78801f1f3 = L.circleMarker(
+            var circle_marker_aed74509593f6c5307c93d54f8b3bf8c = L.circleMarker(
                 [47.0956, 6.8275],
                 {"bubblingMouseEvents": true, "color": "#f0b714ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f0b714ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_b2e1d301be2331797507f9b78801f1f3.bindTooltip(
+            circle_marker_aed74509593f6c5307c93d54f8b3bf8c.bindTooltip(
                 `<div>
                      <b>La Chaux-de-Fonds</b><br>Condition score: <b>3.23</b><br>Renewal (ER): 1.06 MCHF<br>Maintenance: 1.52 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -343,13 +343,13 @@
             );
         
     
-            var poly_line_3c5470468ac13824827ac7d913d3e29a = L.polyline(
+            var poly_line_18e70e4bb95f49f4c48f75876f0a6070 = L.polyline(
                 [[47.0956, 6.8275], [47.0558, 7.067], [47.0956, 6.8275], [47.0563, 6.7519]],
                 {"bubblingMouseEvents": true, "color": "#f1bb12ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f1bb12ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_3c5470468ac13824827ac7d913d3e29a.bindTooltip(
+            poly_line_18e70e4bb95f49f4c48f75876f0a6070.bindTooltip(
                 `<div>
                      <b>La Chaux-de-Fonds - Le Locle</b><br>Condition score: <b>3.16</b><br>Renewal (ER): 1.76 MCHF<br>Maintenance: 1.88 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -359,13 +359,13 @@
             );
         
     
-            var circle_marker_dfd0d23a6a540346ece7889b6b493f75 = L.circleMarker(
+            var circle_marker_f675999e66c08a01599050e4f045278e = L.circleMarker(
                 [47.0956, 6.8275],
                 {"bubblingMouseEvents": true, "color": "#f1bb12ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1bb12ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_dfd0d23a6a540346ece7889b6b493f75.bindTooltip(
+            circle_marker_f675999e66c08a01599050e4f045278e.bindTooltip(
                 `<div>
                      <b>La Chaux-de-Fonds - Le Locle</b><br>Condition score: <b>3.16</b><br>Renewal (ER): 1.76 MCHF<br>Maintenance: 1.88 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -375,13 +375,13 @@
             );
         
     
-            var circle_marker_1fa5f44d62726c86c1a5dcab2a5c64a6 = L.circleMarker(
+            var circle_marker_41ebcaa3c9d99f90f43d78591917a3d2 = L.circleMarker(
                 [47.0563, 6.7519],
                 {"bubblingMouseEvents": true, "color": "#f1bb12ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1bb12ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_1fa5f44d62726c86c1a5dcab2a5c64a6.bindTooltip(
+            circle_marker_41ebcaa3c9d99f90f43d78591917a3d2.bindTooltip(
                 `<div>
                      <b>La Chaux-de-Fonds - Le Locle</b><br>Condition score: <b>3.16</b><br>Renewal (ER): 1.76 MCHF<br>Maintenance: 1.88 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -391,13 +391,13 @@
             );
         
     
-            var poly_line_dc3a62385727b6aeb4c5e80cf9071a35 = L.polyline(
+            var poly_line_9ee99ebb3d3f035dc5da5a18168c12f7 = L.polyline(
                 [[47.0563, 6.7519], [47.0563, 6.7519]],
                 {"bubblingMouseEvents": true, "color": "#8ac943ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#8ac943ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_dc3a62385727b6aeb4c5e80cf9071a35.bindTooltip(
+            poly_line_9ee99ebb3d3f035dc5da5a18168c12f7.bindTooltip(
                 `<div>
                      <b>Le Locle - Le Locle frontière</b><br>Condition score: <b>1.94</b><br>Renewal (ER): 2.48 MCHF<br>Maintenance: 0.50 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -407,13 +407,13 @@
             );
         
     
-            var circle_marker_785a56b206e6f98e36e5cc0e49d126cb = L.circleMarker(
+            var circle_marker_98976653756a3ce16e3015aaba9820bb = L.circleMarker(
                 [47.0563, 6.7519],
                 {"bubblingMouseEvents": true, "color": "#8ac943ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8ac943ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_785a56b206e6f98e36e5cc0e49d126cb.bindTooltip(
+            circle_marker_98976653756a3ce16e3015aaba9820bb.bindTooltip(
                 `<div>
                      <b>Le Locle - Le Locle frontière</b><br>Condition score: <b>1.94</b><br>Renewal (ER): 2.48 MCHF<br>Maintenance: 0.50 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -423,13 +423,13 @@
             );
         
     
-            var circle_marker_f542cc7b05324a58842ecc86218ef738 = L.circleMarker(
+            var circle_marker_b90e718b834809ac9be599ff16fd9272 = L.circleMarker(
                 [47.0563, 6.7519],
                 {"bubblingMouseEvents": true, "color": "#8ac943ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8ac943ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_f542cc7b05324a58842ecc86218ef738.bindTooltip(
+            circle_marker_b90e718b834809ac9be599ff16fd9272.bindTooltip(
                 `<div>
                      <b>Le Locle - Le Locle frontière</b><br>Condition score: <b>1.94</b><br>Renewal (ER): 2.48 MCHF<br>Maintenance: 0.50 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -439,13 +439,13 @@
             );
         
     
-            var poly_line_9e585a82e04e601ce03c218caee76f5b = L.polyline(
+            var poly_line_830055e56b8f699f7d2f2ca28fac3906 = L.polyline(
                 [[47.1366, 7.2464], [47.202, 7.286]],
                 {"bubblingMouseEvents": true, "color": "#e4c515ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e4c515ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_9e585a82e04e601ce03c218caee76f5b.bindTooltip(
+            poly_line_830055e56b8f699f7d2f2ca28fac3906.bindTooltip(
                 `<div>
                      <b>Biel - Sonceboz-Sombeval Ouest</b><br>Condition score: <b>2.87</b><br>Renewal (ER): 16.91 MCHF<br>Maintenance: 5.49 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -455,13 +455,13 @@
             );
         
     
-            var circle_marker_ef940e16b585e089bbf335247c07be12 = L.circleMarker(
+            var circle_marker_b0af15f07e552f0f2baeba51f38ba92f = L.circleMarker(
                 [47.1366, 7.2464],
                 {"bubblingMouseEvents": true, "color": "#e4c515ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4c515ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_ef940e16b585e089bbf335247c07be12.bindTooltip(
+            circle_marker_b0af15f07e552f0f2baeba51f38ba92f.bindTooltip(
                 `<div>
                      <b>Biel - Sonceboz-Sombeval Ouest</b><br>Condition score: <b>2.87</b><br>Renewal (ER): 16.91 MCHF<br>Maintenance: 5.49 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -471,13 +471,13 @@
             );
         
     
-            var circle_marker_6d87eb1dbfd25dae846d9042435950e7 = L.circleMarker(
+            var circle_marker_9789580fce3d7de9eda02f8a1d606db0 = L.circleMarker(
                 [47.202, 7.286],
                 {"bubblingMouseEvents": true, "color": "#e4c515ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4c515ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_6d87eb1dbfd25dae846d9042435950e7.bindTooltip(
+            circle_marker_9789580fce3d7de9eda02f8a1d606db0.bindTooltip(
                 `<div>
                      <b>Biel - Sonceboz-Sombeval Ouest</b><br>Condition score: <b>2.87</b><br>Renewal (ER): 16.91 MCHF<br>Maintenance: 5.49 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -487,13 +487,13 @@
             );
         
     
-            var poly_line_ea26723b3561617ebd01a7fa200cd6ef = L.polyline(
+            var poly_line_5e198b5e3c020f23ee138ea9f9b71a5a = L.polyline(
                 [[47.202, 7.286], [47.0956, 6.8275], [47.0558, 7.067], [47.0956, 6.8275]],
                 {"bubblingMouseEvents": true, "color": "#e1c517ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e1c517ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_ea26723b3561617ebd01a7fa200cd6ef.bindTooltip(
+            poly_line_5e198b5e3c020f23ee138ea9f9b71a5a.bindTooltip(
                 `<div>
                      <b>Sonceboz - La Chaux-de-Fonds</b><br>Condition score: <b>2.83</b><br>Renewal (ER): 5.87 MCHF<br>Maintenance: 4.04 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -503,13 +503,13 @@
             );
         
     
-            var circle_marker_78538aa119ac23b34dde0d17c057bbf7 = L.circleMarker(
+            var circle_marker_d7dcb3e8562bbf24657819f686c56f03 = L.circleMarker(
                 [47.202, 7.286],
                 {"bubblingMouseEvents": true, "color": "#e1c517ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e1c517ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_78538aa119ac23b34dde0d17c057bbf7.bindTooltip(
+            circle_marker_d7dcb3e8562bbf24657819f686c56f03.bindTooltip(
                 `<div>
                      <b>Sonceboz - La Chaux-de-Fonds</b><br>Condition score: <b>2.83</b><br>Renewal (ER): 5.87 MCHF<br>Maintenance: 4.04 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -519,13 +519,13 @@
             );
         
     
-            var circle_marker_bca197f206b7d5c536f7c93c7b0e355d = L.circleMarker(
+            var circle_marker_4ef46939234a73a38d20801be1a47e78 = L.circleMarker(
                 [47.0956, 6.8275],
                 {"bubblingMouseEvents": true, "color": "#e1c517ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e1c517ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_bca197f206b7d5c536f7c93c7b0e355d.bindTooltip(
+            circle_marker_4ef46939234a73a38d20801be1a47e78.bindTooltip(
                 `<div>
                      <b>Sonceboz - La Chaux-de-Fonds</b><br>Condition score: <b>2.83</b><br>Renewal (ER): 5.87 MCHF<br>Maintenance: 4.04 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -535,13 +535,13 @@
             );
         
     
-            var poly_line_d61a916cc05df8c7c8415fabbabed24e = L.polyline(
+            var poly_line_e941aca7b8f79aed26657d171de3457e = L.polyline(
                 [[47.202, 7.286], [47.2772, 7.3695]],
                 {"bubblingMouseEvents": true, "color": "#f1bf11ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f1bf11ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_d61a916cc05df8c7c8415fabbabed24e.bindTooltip(
+            poly_line_e941aca7b8f79aed26657d171de3457e.bindTooltip(
                 `<div>
                      <b>Sonceboz - Moutier</b><br>Condition score: <b>3.09</b><br>Renewal (ER): 35.18 MCHF<br>Maintenance: 4.94 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -551,13 +551,13 @@
             );
         
     
-            var circle_marker_cffae956b22fd87bc73278a99662c179 = L.circleMarker(
+            var circle_marker_a07f4221b18595ef237fda19d2ce1a37 = L.circleMarker(
                 [47.202, 7.286],
                 {"bubblingMouseEvents": true, "color": "#f1bf11ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1bf11ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_cffae956b22fd87bc73278a99662c179.bindTooltip(
+            circle_marker_a07f4221b18595ef237fda19d2ce1a37.bindTooltip(
                 `<div>
                      <b>Sonceboz - Moutier</b><br>Condition score: <b>3.09</b><br>Renewal (ER): 35.18 MCHF<br>Maintenance: 4.94 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -567,13 +567,13 @@
             );
         
     
-            var circle_marker_952ba6144a23e8eda04dfd7632ac1b26 = L.circleMarker(
+            var circle_marker_bb9ac9fa9131b5f3dd94c3ed324766b0 = L.circleMarker(
                 [47.2772, 7.3695],
                 {"bubblingMouseEvents": true, "color": "#f1bf11ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1bf11ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_952ba6144a23e8eda04dfd7632ac1b26.bindTooltip(
+            circle_marker_bb9ac9fa9131b5f3dd94c3ed324766b0.bindTooltip(
                 `<div>
                      <b>Sonceboz - Moutier</b><br>Condition score: <b>3.09</b><br>Renewal (ER): 35.18 MCHF<br>Maintenance: 4.94 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -583,13 +583,13 @@
             );
         
     
-            var circle_marker_4274cec076fc1081b12baa8302de3b07 = L.circleMarker(
+            var circle_marker_1154e53f540400c5b8eae5cc52dfbebc = L.circleMarker(
                 [47.2772, 7.3695],
                 {"bubblingMouseEvents": true, "color": "#d3c61eff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d3c61eff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_4274cec076fc1081b12baa8302de3b07.bindTooltip(
+            circle_marker_1154e53f540400c5b8eae5cc52dfbebc.bindTooltip(
                 `<div>
                      <b>Moutier - Choindez</b><br>Condition score: <b>2.69</b><br>Renewal (ER): 27.88 MCHF<br>Maintenance: 2.19 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -599,13 +599,13 @@
             );
         
     
-            var circle_marker_76bd27011702c0815e64f424a57077af = L.circleMarker(
+            var circle_marker_d740ac5a5eb5ba36910122e31e21016a = L.circleMarker(
                 [47.3666, 7.3446],
                 {"bubblingMouseEvents": true, "color": "#f0b714ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f0b714ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_76bd27011702c0815e64f424a57077af.bindTooltip(
+            circle_marker_d740ac5a5eb5ba36910122e31e21016a.bindTooltip(
                 `<div>
                      <b>Choindez - Delémont</b><br>Condition score: <b>3.23</b><br>Renewal (ER): 4.72 MCHF<br>Maintenance: 5.24 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -615,13 +615,13 @@
             );
         
     
-            var circle_marker_edca6862a9bfbeb7fc7b729d6d4bd930 = L.circleMarker(
+            var circle_marker_9a933b8f59f9623e87319aca6f4158d8 = L.circleMarker(
                 [47.3666, 7.3446],
                 {"bubblingMouseEvents": true, "color": "#b9c72bff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b9c72bff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_edca6862a9bfbeb7fc7b729d6d4bd930.bindTooltip(
+            circle_marker_9a933b8f59f9623e87319aca6f4158d8.bindTooltip(
                 `<div>
                      <b>Delémont - Soyhières Est</b><br>Condition score: <b>2.42</b><br>Renewal (ER): 0.07 MCHF<br>Maintenance: 0.75 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -631,13 +631,13 @@
             );
         
     
-            var circle_marker_09d4d3be271c6ddcea33a7639a7871ca = L.circleMarker(
+            var circle_marker_4c5ab61fb11c2edcdf6bc4d3b0724a29 = L.circleMarker(
                 [47.4261, 7.4975],
                 {"bubblingMouseEvents": true, "color": "#c4c625ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c4c625ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_09d4d3be271c6ddcea33a7639a7871ca.bindTooltip(
+            circle_marker_4c5ab61fb11c2edcdf6bc4d3b0724a29.bindTooltip(
                 `<div>
                      <b>Soyhières Est - Laufen</b><br>Condition score: <b>2.54</b><br>Renewal (ER): 1.04 MCHF<br>Maintenance: 1.63 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -647,13 +647,13 @@
             );
         
     
-            var poly_line_52d429b4ed1c6b5af32d5b0becba5476 = L.polyline(
+            var poly_line_db176a84f69b52c8046500d368bd2c93 = L.polyline(
                 [[47.4261, 7.4975], [47.4803, 7.594]],
                 {"bubblingMouseEvents": true, "color": "#cdc621ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#cdc621ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_52d429b4ed1c6b5af32d5b0becba5476.bindTooltip(
+            poly_line_db176a84f69b52c8046500d368bd2c93.bindTooltip(
                 `<div>
                      <b>Laufen - Aesch</b><br>Condition score: <b>2.62</b><br>Renewal (ER): 53.03 MCHF<br>Maintenance: 4.96 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -663,13 +663,13 @@
             );
         
     
-            var circle_marker_2a45b7ae8575493e6bb5231b9a2f2b45 = L.circleMarker(
+            var circle_marker_4285f1ca4f46b585d7784d0e6b76cef6 = L.circleMarker(
                 [47.4261, 7.4975],
                 {"bubblingMouseEvents": true, "color": "#cdc621ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cdc621ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_2a45b7ae8575493e6bb5231b9a2f2b45.bindTooltip(
+            circle_marker_4285f1ca4f46b585d7784d0e6b76cef6.bindTooltip(
                 `<div>
                      <b>Laufen - Aesch</b><br>Condition score: <b>2.62</b><br>Renewal (ER): 53.03 MCHF<br>Maintenance: 4.96 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -679,13 +679,13 @@
             );
         
     
-            var circle_marker_5f899239f6f2ce24b1f2a6e8f2803cc2 = L.circleMarker(
+            var circle_marker_3201182ac07c8c9802ad945dd8e95fd7 = L.circleMarker(
                 [47.4803, 7.594],
                 {"bubblingMouseEvents": true, "color": "#cdc621ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cdc621ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_5f899239f6f2ce24b1f2a6e8f2803cc2.bindTooltip(
+            circle_marker_3201182ac07c8c9802ad945dd8e95fd7.bindTooltip(
                 `<div>
                      <b>Laufen - Aesch</b><br>Condition score: <b>2.62</b><br>Renewal (ER): 53.03 MCHF<br>Maintenance: 4.96 MCHF<br>Category: Hauptstrecke
                  </div>`,
@@ -695,13 +695,13 @@
             );
         
     
-            var poly_line_bfd8196756797c54f41aa769374e6b43 = L.polyline(
+            var poly_line_7e30306060308029a6d3caff02dd8801 = L.polyline(
                 [[47.3666, 7.3446], [47.3369, 7.2106]],
                 {"bubblingMouseEvents": true, "color": "#abc732ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#abc732ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_bfd8196756797c54f41aa769374e6b43.bindTooltip(
+            poly_line_7e30306060308029a6d3caff02dd8801.bindTooltip(
                 `<div>
                      <b>Delémont - Glovelier</b><br>Condition score: <b>2.28</b><br>Renewal (ER): 0.06 MCHF<br>Maintenance: 2.46 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -711,13 +711,13 @@
             );
         
     
-            var circle_marker_27a3d2d6041b02d3e43192b1cb54f96e = L.circleMarker(
+            var circle_marker_83f840cce820610d9c444e7d7dd6522e = L.circleMarker(
                 [47.3666, 7.3446],
                 {"bubblingMouseEvents": true, "color": "#abc732ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#abc732ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_27a3d2d6041b02d3e43192b1cb54f96e.bindTooltip(
+            circle_marker_83f840cce820610d9c444e7d7dd6522e.bindTooltip(
                 `<div>
                      <b>Delémont - Glovelier</b><br>Condition score: <b>2.28</b><br>Renewal (ER): 0.06 MCHF<br>Maintenance: 2.46 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -727,13 +727,13 @@
             );
         
     
-            var circle_marker_cad6dd41a79380f3ff9e29b9d9cfc937 = L.circleMarker(
+            var circle_marker_80af29456cc2e0a317b062926d73e377 = L.circleMarker(
                 [47.3369, 7.2106],
                 {"bubblingMouseEvents": true, "color": "#abc732ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#abc732ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_cad6dd41a79380f3ff9e29b9d9cfc937.bindTooltip(
+            circle_marker_80af29456cc2e0a317b062926d73e377.bindTooltip(
                 `<div>
                      <b>Delémont - Glovelier</b><br>Condition score: <b>2.28</b><br>Renewal (ER): 0.06 MCHF<br>Maintenance: 2.46 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -743,13 +743,13 @@
             );
         
     
-            var poly_line_a867d291c20fc2c42894a507b6dca1d7 = L.polyline(
+            var poly_line_f826df8c147e26b6927376646cd1a308 = L.polyline(
                 [[47.3369, 7.2106], [47.416, 7.0755]],
                 {"bubblingMouseEvents": true, "color": "#cec620ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#cec620ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_a867d291c20fc2c42894a507b6dca1d7.bindTooltip(
+            poly_line_f826df8c147e26b6927376646cd1a308.bindTooltip(
                 `<div>
                      <b>Glovelier - Porrentruy</b><br>Condition score: <b>2.64</b><br>Renewal (ER): 1.62 MCHF<br>Maintenance: 5.05 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -759,13 +759,13 @@
             );
         
     
-            var circle_marker_40c98d6274b52d7ec7da8b4acd0a379a = L.circleMarker(
+            var circle_marker_36bbff0ecf341592b36341db6739bf14 = L.circleMarker(
                 [47.3369, 7.2106],
                 {"bubblingMouseEvents": true, "color": "#cec620ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cec620ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_40c98d6274b52d7ec7da8b4acd0a379a.bindTooltip(
+            circle_marker_36bbff0ecf341592b36341db6739bf14.bindTooltip(
                 `<div>
                      <b>Glovelier - Porrentruy</b><br>Condition score: <b>2.64</b><br>Renewal (ER): 1.62 MCHF<br>Maintenance: 5.05 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -775,13 +775,13 @@
             );
         
     
-            var circle_marker_7da4ad4585f798bfeaa218483a0d879d = L.circleMarker(
+            var circle_marker_e4a7dd92a5d5f40337b4161f8fe881d5 = L.circleMarker(
                 [47.416, 7.0755],
                 {"bubblingMouseEvents": true, "color": "#cec620ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cec620ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_7da4ad4585f798bfeaa218483a0d879d.bindTooltip(
+            circle_marker_e4a7dd92a5d5f40337b4161f8fe881d5.bindTooltip(
                 `<div>
                      <b>Glovelier - Porrentruy</b><br>Condition score: <b>2.64</b><br>Renewal (ER): 1.62 MCHF<br>Maintenance: 5.05 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -791,13 +791,13 @@
             );
         
     
-            var poly_line_9e5f5e246e4d65efce1da2e7fc86c016 = L.polyline(
-                [[47.416, 7.0755], [47.253, 7.3564]],
+            var poly_line_91a10e7d9d1cfc8f6184c133190b594c = L.polyline(
+                [[47.416, 7.0755], [47.45953, 7.04741]],
                 {"bubblingMouseEvents": true, "color": "#c9c623ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c9c623ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_9e5f5e246e4d65efce1da2e7fc86c016.bindTooltip(
+            poly_line_91a10e7d9d1cfc8f6184c133190b594c.bindTooltip(
                 `<div>
                      <b>Porrentruy - Courtemaîche</b><br>Condition score: <b>2.59</b><br>Renewal (ER): 0.12 MCHF<br>Maintenance: 0.95 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -807,13 +807,13 @@
             );
         
     
-            var circle_marker_5b3fcafa4071f40f53de2a435943dcd8 = L.circleMarker(
+            var circle_marker_2354407a707b3f6a5d61b837b1cf7957 = L.circleMarker(
                 [47.416, 7.0755],
                 {"bubblingMouseEvents": true, "color": "#c9c623ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c9c623ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_5b3fcafa4071f40f53de2a435943dcd8.bindTooltip(
+            circle_marker_2354407a707b3f6a5d61b837b1cf7957.bindTooltip(
                 `<div>
                      <b>Porrentruy - Courtemaîche</b><br>Condition score: <b>2.59</b><br>Renewal (ER): 0.12 MCHF<br>Maintenance: 0.95 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -823,13 +823,13 @@
             );
         
     
-            var circle_marker_6dd71dbba39089f324ade9a9b7335761 = L.circleMarker(
-                [47.253, 7.3564],
+            var circle_marker_379b8a14aac27f8c5cc36ef2c449ac49 = L.circleMarker(
+                [47.45953, 7.04741],
                 {"bubblingMouseEvents": true, "color": "#c9c623ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c9c623ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_6dd71dbba39089f324ade9a9b7335761.bindTooltip(
+            circle_marker_379b8a14aac27f8c5cc36ef2c449ac49.bindTooltip(
                 `<div>
                      <b>Porrentruy - Courtemaîche</b><br>Condition score: <b>2.59</b><br>Renewal (ER): 0.12 MCHF<br>Maintenance: 0.95 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -839,13 +839,13 @@
             );
         
     
-            var poly_line_4823f149e9fc2a1015798aff9dff59c0 = L.polyline(
-                [[47.253, 7.3564], [47.4899, 7.005]],
+            var poly_line_1efb5f440a5bb67b9099ed678b3765e9 = L.polyline(
+                [[47.45953, 7.04741], [47.4899, 7.005]],
                 {"bubblingMouseEvents": true, "color": "#d7c51cff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#d7c51cff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_4823f149e9fc2a1015798aff9dff59c0.bindTooltip(
+            poly_line_1efb5f440a5bb67b9099ed678b3765e9.bindTooltip(
                 `<div>
                      <b>Courtemaîche - Boncourt</b><br>Condition score: <b>2.73</b><br>Renewal (ER): 0.03 MCHF<br>Maintenance: 0.65 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -855,13 +855,13 @@
             );
         
     
-            var circle_marker_6b6502f8eb843aa8a1f56db6909dffb5 = L.circleMarker(
-                [47.253, 7.3564],
+            var circle_marker_c208919289e29e5593e8e6aba2ac83b3 = L.circleMarker(
+                [47.45953, 7.04741],
                 {"bubblingMouseEvents": true, "color": "#d7c51cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7c51cff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_6b6502f8eb843aa8a1f56db6909dffb5.bindTooltip(
+            circle_marker_c208919289e29e5593e8e6aba2ac83b3.bindTooltip(
                 `<div>
                      <b>Courtemaîche - Boncourt</b><br>Condition score: <b>2.73</b><br>Renewal (ER): 0.03 MCHF<br>Maintenance: 0.65 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -871,13 +871,13 @@
             );
         
     
-            var circle_marker_65d55319f11ff529d729fd4e284bc7ee = L.circleMarker(
+            var circle_marker_09883948d88eb03c6cec96912afce869 = L.circleMarker(
                 [47.4899, 7.005],
                 {"bubblingMouseEvents": true, "color": "#d7c51cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7c51cff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_65d55319f11ff529d729fd4e284bc7ee.bindTooltip(
+            circle_marker_09883948d88eb03c6cec96912afce869.bindTooltip(
                 `<div>
                      <b>Courtemaîche - Boncourt</b><br>Condition score: <b>2.73</b><br>Renewal (ER): 0.03 MCHF<br>Maintenance: 0.65 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -887,13 +887,13 @@
             );
         
     
-            var poly_line_b216994b7a5647ea6959169a1c8bddc9 = L.polyline(
+            var poly_line_5d7567599ce36d8b6c1e8ee7503dcf34 = L.polyline(
                 [[47.4899, 7.005], [47.5073, 6.9935]],
                 {"bubblingMouseEvents": true, "color": "#ebc512ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ebc512ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 7}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            poly_line_b216994b7a5647ea6959169a1c8bddc9.bindTooltip(
+            poly_line_5d7567599ce36d8b6c1e8ee7503dcf34.bindTooltip(
                 `<div>
                      <b>Boncourt - Delle Frontière</b><br>Condition score: <b>2.94</b><br>Renewal (ER): 0.00 MCHF<br>Maintenance: 0.05 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -903,13 +903,13 @@
             );
         
     
-            var circle_marker_da2a47beecf43f6102863d0452b07eb5 = L.circleMarker(
+            var circle_marker_6cc55b99945bbe975d333cc531b5cd9d = L.circleMarker(
                 [47.4899, 7.005],
                 {"bubblingMouseEvents": true, "color": "#ebc512ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ebc512ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_da2a47beecf43f6102863d0452b07eb5.bindTooltip(
+            circle_marker_6cc55b99945bbe975d333cc531b5cd9d.bindTooltip(
                 `<div>
                      <b>Boncourt - Delle Frontière</b><br>Condition score: <b>2.94</b><br>Renewal (ER): 0.00 MCHF<br>Maintenance: 0.05 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -919,13 +919,13 @@
             );
         
     
-            var circle_marker_b14740949ba5d86fda688634e02c2bc0 = L.circleMarker(
+            var circle_marker_5d15884bc824181630b4b016e7f097bb = L.circleMarker(
                 [47.5073, 6.9935],
                 {"bubblingMouseEvents": true, "color": "#ebc512ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ebc512ff", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_b14740949ba5d86fda688634e02c2bc0.bindTooltip(
+            circle_marker_5d15884bc824181630b4b016e7f097bb.bindTooltip(
                 `<div>
                      <b>Boncourt - Delle Frontière</b><br>Condition score: <b>2.94</b><br>Renewal (ER): 0.00 MCHF<br>Maintenance: 0.05 MCHF<br>Category: Regionalstrecke
                  </div>`,
@@ -935,13 +935,13 @@
             );
         
     
-            var circle_marker_be3e5456da0281fe5620f3fb87b4e818 = L.circleMarker(
-                [47.253, 7.3564],
+            var circle_marker_0cc6d052dc367624166d8d469f42fd9e = L.circleMarker(
+                [47.45953, 7.04741],
                 {"bubblingMouseEvents": true, "color": "#98c83cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#98c83cff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
-            ).addTo(map_cda99b4eabaa1548639475f9017d4894);
+            ).addTo(map_3f5e6a6ce02a45ffcd6d90106bc6077b);
         
     
-            circle_marker_be3e5456da0281fe5620f3fb87b4e818.bindTooltip(
+            circle_marker_0cc6d052dc367624166d8d469f42fd9e.bindTooltip(
                 `<div>
                      <b>Courtemaîche - Bure Casernes</b><br>Condition score: <b>2.08</b><br>Renewal (ER): 0.00 MCHF<br>Maintenance: 0.01 MCHF<br>Category: Regionalstrecke
                  </div>`,
