@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Detail — Neuchâtel – La Chaux-de-Fonds</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a2e;
+            padding: 2rem;
+        }
+        h1 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+        .subtitle { color: #555; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .charts-row {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .chart-col {
+            flex: 1;
+            min-width: 0;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .controls label { font-weight: 600; font-size: 0.95rem; }
+        .controls input[type="range"] {
+            flex: 1;
+            min-width: 200px;
+            accent-color: #1976d2;
+        }
+        .year-display {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1976d2;
+            min-width: 50px;
+        }
+        .play-btn {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.4rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .play-btn:hover { background: #1256a0; }
+        .play-btn.playing { background: #d32f2f; }
+        .legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+        .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+        .legend-swatch { width: 14px; height: 14px; border-radius: 3px; }
+        #status {
+            text-align: center;
+            padding: 1rem;
+            color: #888;
+            font-size: 0.95rem;
+        }
+        canvas { max-height: 500px; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2.5rem 0;
+        }
+        h2 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #333; }
+        .icon-row {
+            display: flex;
+        }
+        .icon-row .family-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+        }
+        .icon-row .family-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+        .icon-row .family-icon .icon-label {
+            font-size: 7.5px;
+            color: #555;
+            text-align: center;
+            margin-top: 2px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            height: 90px;
+        }
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .filter-row .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.35rem 0.7rem;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .filter-row .filter-btn.active {
+            border-color: #1976d2;
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: 600;
+        }
+        .filter-row .filter-btn:hover {
+            border-color: #1976d2;
+        }
+        .filter-row .filter-btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+        .filter-row .select-all-btn {
+            padding: 0.35rem 0.7rem;
+            border: 2px solid #888;
+            border-radius: 20px;
+            background: #f0f0f0;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.2s;
+        }
+        .filter-row .select-all-btn:hover {
+            background: #ddd;
+        }
+        /* Super Mario coin animation */
+        @keyframes coinPop {
+            0% { transform: translate(-50%, -50%) rotateY(0deg) scale(0.2); opacity: 0; }
+            10% { transform: translate(-50%, -50%) rotateY(90deg) scale(1); opacity: 1; }
+            25% { transform: translate(-50%, -55%) rotateY(270deg) scale(1.05); opacity: 1; }
+            50% { transform: translate(-50%, -50%) rotateY(540deg) scale(1); opacity: 1; }
+            75% { transform: translate(-50%, -50%) rotateY(810deg) scale(1); opacity: 1; }
+            90% { transform: translate(-50%, -50%) rotateY(1000deg) scale(0.8); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) rotateY(1080deg) scale(0.4); opacity: 0; }
+        }
+        .coin {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 280px;
+            height: 280px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: coinPop 2.5s ease-in-out forwards;
+            filter: drop-shadow(0 0 40px rgba(255, 193, 7, 0.8)) drop-shadow(0 0 80px rgba(255, 152, 0, 0.5));
+        }
+        .coin img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Quality Score by Asset Family</h1>
+        <p class="subtitle">Neuchâtel – La Chaux-de-Fonds</p>
+        <div id="status">Loading data...</div>
+        <div id="app" style="display:none;">
+            <div class="controls">
+                <button class="play-btn" id="playBtn">▶ Play</button>
+                <label for="yearSlider">Year:</label>
+                <input type="range" id="yearSlider" min="2025" max="2049" value="2025" step="1">
+                <span class="year-display" id="yearLabel">2025</span>
+            </div>
+            <div class="filter-row" id="filterRow"></div>
+            <div class="charts-row">
+                <div class="chart-col">
+                    <h2>Average Quality Score</h2>
+                    <div class="chart-container">
+                        <canvas id="chart"></canvas>
+                    </div>
+                    <div class="icon-row" id="iconRow1"></div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-swatch" style="background:#006E09;"></div>
+                            <span>Below threshold</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-swatch" style="background:#d32f2f;"></div>
+                            <span>Above threshold (&gt; 4)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-swatch" style="background:transparent; border: 2px dashed #d32f2f;"></div>
+                            <span>Threshold = 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-col">
+                    <h2>Asset Distribution (% Above / Below)</h2>
+                    <div class="chart-container">
+                        <canvas id="stackedChart"></canvas>
+                    </div>
+                    <div class="icon-row" id="iconRow2"></div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-swatch" style="background:#006E09;"></div>
+                            <span>Score ≤ 4 (healthy)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-swatch" style="background:#d32f2f;"></div>
+                            <span>Score &gt; 4 (critical)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Critical Assets Over Time</h2>
+            <p class="subtitle" style="margin-bottom:0.5rem;">Lines build up as the year slider advances</p>
+            <div class="filter-row" id="lineFilterRow"></div>
+            <div class="chart-container" style="height:400px;">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+<script>
+const THRESHOLD = 4;
+const CSV_PATH = "data/Version_LimitedRessources_CHF1000MRD/C200/section_223100.csv";
+
+let chartInstance = null;
+let stackedChartInstance = null;
+let lineChartInstance = null;
+let groupedData = {};
+let stackedData = {};
+let families = [];
+let allYears = [];
+let visibleFamilies = new Set();
+let visibleLineFamilies = new Set();
+let currentYear = 2025;
+
+async function loadData() {
+    try {
+        const response = await fetch(CSV_PATH);
+        if (!response.ok) throw new Error("HTTP " + response.status);
+
+        const text = await response.text();
+        document.getElementById("status").textContent = "Parsing " + (text.length / 1024 / 1024).toFixed(1) + " MB...";
+
+        const results = Papa.parse(text, {
+            header: true,
+            delimiter: ";",
+            skipEmptyLines: true
+        });
+
+        const rows = results.data;
+
+        if (rows.length === 0) {
+            document.getElementById("status").textContent = "No data found in CSV.";
+            return;
+        }
+
+        document.getElementById("status").textContent = "Processing " + rows.length + " rows...";
+
+        // Group by year + family, compute average condition score
+        const accumulator = {};
+        const countAbove = {};
+        const countTotal = {};
+        const familySet = new Set();
+        const yearSet = new Set();
+
+        rows.forEach(row => {
+            const yearStr = (row["Betrachtungsjahr"] || "").trim();
+            const family = (row["Gattungsname"] || "").trim();
+            // Handle comma decimal separator
+            const scoreStr = (row["Substanz - Quality Aspect Grade"] || "").replace(",", ".");
+            const score = parseFloat(scoreStr);
+            const year = parseInt(yearStr);
+
+            if (!year || !family || isNaN(score)) return;
+
+            const key = year + "|" + family;
+            if (!accumulator[key]) accumulator[key] = { sum: 0, count: 0 };
+            accumulator[key].sum += score;
+            accumulator[key].count += 1;
+
+            // Count for stacked chart
+            if (!countTotal[key]) countTotal[key] = 0;
+            if (!countAbove[key]) countAbove[key] = 0;
+            countTotal[key] += 1;
+            if (score > THRESHOLD) countAbove[key] += 1;
+
+            familySet.add(family);
+            yearSet.add(year);
+        });
+
+        families = Array.from(familySet).sort();
+        const years = Array.from(yearSet).sort((a, b) => a - b).filter(y => y <= 2048);
+        allYears = years;
+        visibleFamilies = new Set(families);
+        visibleLineFamilies = new Set(families);
+
+        if (years.length === 0) {
+            document.getElementById("status").textContent = "No valid year/score data found.";
+            return;
+        }
+
+        // Build grouped data
+        years.forEach(year => {
+            groupedData[year] = {};
+            stackedData[year] = {};
+            families.forEach(fam => {
+                const key = year + "|" + fam;
+                if (accumulator[key]) {
+                    groupedData[year][fam] = accumulator[key].sum / accumulator[key].count;
+                } else {
+                    groupedData[year][fam] = 0;
+                }
+                // Stacked data: percentage above and below
+                const total = countTotal[key] || 0;
+                const above = countAbove[key] || 0;
+                const below = total - above;
+                stackedData[year][fam] = {
+                    pctAbove: total > 0 ? (above / total) * 100 : 0,
+                    pctBelow: total > 0 ? (below / total) * 100 : 0,
+                    above: above,
+                    below: below,
+                    total: total
+                };
+            });
+        });
+
+        // Setup slider
+        const slider = document.getElementById("yearSlider");
+        slider.min = years[0];
+        slider.max = years[years.length - 1];
+        slider.value = years[0];
+        document.getElementById("yearLabel").textContent = years[0];
+
+        document.getElementById("status").style.display = "none";
+        document.getElementById("app").style.display = "block";
+
+        renderChart(years[0]);
+        renderStackedChart(years[0]);
+        renderLineChart(years[0]);
+        renderIconRows();
+        buildFilterButtons();
+        buildLineFilterButtons();
+        currentYear = years[0];
+
+        let previousYear = years[0];
+
+        function updateAll(year) {
+            // Detect transition from 2033 to 2034 (money injection for FB)
+            if (previousYear <= 2033 && year >= 2034) {
+                spawnCoins();
+                // Pause the slider for a few seconds to show the effect
+                if (playInterval) {
+                    clearInterval(playInterval);
+                    playInterval = null;
+                    setTimeout(() => {
+                        // Resume playing after the coin animation
+                        playInterval = setInterval(function() {
+                            let current = parseInt(slider.value);
+                            if (current >= parseInt(slider.max)) {
+                                stopPlay();
+                                return;
+                            }
+                            current += 1;
+                            updateAll(current);
+                        }, 800);
+                    }, 2500);
+                }
+            }
+            previousYear = year;
+            currentYear = year;
+            document.getElementById("yearLabel").textContent = year;
+            slider.value = year;
+            renderChart(year);
+            renderStackedChart(year);
+            renderLineChart(year);
+        }
+
+        slider.addEventListener("input", function() {
+            updateAll(parseInt(this.value));
+        });
+
+        // Play button logic
+        let playInterval = null;
+        const playBtn = document.getElementById("playBtn");
+
+        function stopPlay() {
+            clearInterval(playInterval);
+            playInterval = null;
+            playBtn.textContent = "▶ Play";
+            playBtn.classList.remove("playing");
+        }
+
+        function startPlay() {
+            // If at the end, reset to start
+            if (parseInt(slider.value) >= parseInt(slider.max)) {
+                updateAll(parseInt(slider.min));
+            }
+            playBtn.textContent = "⏸ Pause";
+            playBtn.classList.add("playing");
+            playInterval = setInterval(function() {
+                let current = parseInt(slider.value);
+                if (current >= parseInt(slider.max)) {
+                    stopPlay();
+                    return;
+                }
+                current += 1;
+                updateAll(current);
+            }, 800);
+        }
+
+        function togglePlay() {
+            if (playInterval) {
+                stopPlay();
+            } else {
+                startPlay();
+            }
+        }
+
+        playBtn.addEventListener("click", togglePlay);
+
+    } catch (err) {
+        document.getElementById("status").textContent = "Error: " + err.message;
+        console.error(err);
+    }
+}
+
+function getHighlightState() {
+    // Only highlight if line filter is a strict subset (not all selected)
+    return visibleLineFamilies.size > 0 && visibleLineFamilies.size < families.length;
+}
+
+function renderChart(year) {
+    const filteredFamilies = families.filter(f => visibleFamilies.has(f));
+    const data = groupedData[year] || {};
+    const values = filteredFamilies.map(f => data[f] || 0);
+    const shouldHighlight = getHighlightState();
+    const colors = filteredFamilies.map((f, i) => {
+        const baseColor = values[i] > THRESHOLD ? "#d32f2f" : "#006E09";
+        if (shouldHighlight && !visibleLineFamilies.has(f)) {
+            return values[i] > THRESHOLD ? "rgba(211,47,47,0.2)" : "rgba(0,110,9,0.2)";
+        }
+        return baseColor;
+    });
+
+    if (chartInstance) {
+        chartInstance.data.labels = filteredFamilies;
+        chartInstance.data.datasets[0].data = values;
+        chartInstance.data.datasets[0].backgroundColor = colors;
+        chartInstance.update();
+        return;
+    }
+
+    const ctx = document.getElementById("chart").getContext("2d");
+
+    chartInstance = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: filteredFamilies,
+            datasets: [{
+                label: "Quality Score",
+                data: values,
+                backgroundColor: colors,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+                duration: 600,
+                easing: "easeInOutQuart"
+            },
+            transitions: {
+                active: { animation: { duration: 300 } }
+            },
+            layout: {
+                padding: { bottom: 5 }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) { return "Score: " + ctx.parsed.y.toFixed(2); }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { display: false }
+                },
+                y: {
+                    beginAtZero: true,
+                    max: 6,
+                    title: { display: true, text: "Quality Score" }
+                }
+            }
+        },
+        plugins: [{
+            id: "thresholdLine",
+            afterDraw(chart) {
+                const yScale = chart.scales.y;
+                const c = chart.ctx;
+                const y = yScale.getPixelForValue(THRESHOLD);
+                c.save();
+                c.setLineDash([8, 4]);
+                c.strokeStyle = "#d32f2f";
+                c.lineWidth = 2;
+                c.beginPath();
+                c.moveTo(chart.chartArea.left, y);
+                c.lineTo(chart.chartArea.right, y);
+                c.stroke();
+                c.restore();
+            }
+        },
+        {
+            id: "barValueLabels",
+            afterDatasetsDraw(chart) {
+                const ctx = chart.ctx;
+                const meta = chart.getDatasetMeta(0);
+                const dataset = chart.data.datasets[0];
+                ctx.save();
+                ctx.font = "bold 11px sans-serif";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "bottom";
+                meta.data.forEach((bar, i) => {
+                    const value = dataset.data[i];
+                    if (value > 0) {
+                        ctx.fillStyle = value > THRESHOLD ? "#d32f2f" : "#006E09";
+                        ctx.fillText(value.toFixed(1), bar.x, bar.y - 4);
+                    }
+                });
+                ctx.restore();
+            }
+        }]
+    });
+}
+
+function renderStackedChart(year) {
+    const filteredFamilies = families.filter(f => visibleFamilies.has(f));
+    const data = stackedData[year] || {};
+    const pctBelow = filteredFamilies.map(f => data[f] ? data[f].pctBelow : 0);
+    const pctAbove = filteredFamilies.map(f => data[f] ? data[f].pctAbove : 0);
+    const details = filteredFamilies.map(f => data[f] || { above: 0, below: 0, total: 0 });
+    const shouldHighlight = getHighlightState();
+    const greenColors = filteredFamilies.map(f => {
+        if (shouldHighlight && !visibleLineFamilies.has(f)) return "rgba(0,110,9,0.2)";
+        return "#006E09";
+    });
+    const redColors = filteredFamilies.map(f => {
+        if (shouldHighlight && !visibleLineFamilies.has(f)) return "rgba(211,47,47,0.2)";
+        return "#d32f2f";
+    });
+
+    if (stackedChartInstance) {
+        stackedChartInstance.data.labels = filteredFamilies;
+        stackedChartInstance.data.datasets[0].data = pctBelow;
+        stackedChartInstance.data.datasets[0].backgroundColor = greenColors;
+        stackedChartInstance.data.datasets[1].data = pctAbove;
+        stackedChartInstance.data.datasets[1].backgroundColor = redColors;
+        stackedChartInstance._details = details;
+        stackedChartInstance.update();
+        return;
+    }
+
+    const ctx = document.getElementById("stackedChart").getContext("2d");
+
+    stackedChartInstance = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: filteredFamilies,
+            datasets: [
+                {
+                    label: "Score ≤ 4",
+                    data: pctBelow,
+                    backgroundColor: greenColors,
+                    borderRadius: 0
+                },
+                {
+                    label: "Score > 4",
+                    data: pctAbove,
+                    backgroundColor: redColors,
+                    borderRadius: { topLeft: 4, topRight: 4 }
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+                duration: 600,
+                easing: "easeInOutQuart"
+            },
+            transitions: {
+                active: { animation: { duration: 300 } }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) {
+                            const idx = ctx.dataIndex;
+                            const d = (stackedChartInstance._details || details)[idx];
+                            if (ctx.datasetIndex === 1) {
+                                return "Critical: " + d.above + "/" + d.total + " (" + ctx.parsed.y.toFixed(1) + "%)";
+                            }
+                            return "Healthy: " + d.below + "/" + d.total + " (" + ctx.parsed.y.toFixed(1) + "%)";
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: { display: false }
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    max: 100,
+                    title: { display: true, text: "% of Assets" },
+                    ticks: { callback: function(v) { return v + "%"; } }
+                }
+            }
+        },
+        plugins: [{
+            id: "barLabels",
+            afterDatasetsDraw(chart) {
+                const ctx = chart.ctx;
+                const redMeta = chart.getDatasetMeta(1); // red dataset
+                const redDataset = chart.data.datasets[1];
+                ctx.save();
+                ctx.font = "bold 11px sans-serif";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+
+                redMeta.data.forEach((bar, i) => {
+                    const redValue = redDataset.data[i];
+                    if (redValue > 0) {
+                        const redHeight = bar.base - bar.y;
+                        if (redHeight > 18) {
+                            // Enough space: white text inside red bar
+                            ctx.fillStyle = "#fff";
+                            ctx.fillText(Math.round(redValue) + "%", bar.x, (bar.y + bar.base) / 2);
+                        } else {
+                            // Too small: red text below the red bar (inside green area)
+                            ctx.fillStyle = "#d32f2f";
+                            ctx.fillText(Math.round(redValue) + "%", bar.x, bar.base + 14);
+                        }
+                    }
+                });
+
+                ctx.restore();
+            }
+        }]
+    });
+    stackedChartInstance._details = details;
+}
+
+// Line colors for each family (no red/green to avoid confusion with bar chart colors)
+const LINE_COLORS = [
+    "#1976d2", "#f57c00", "#7b1fa2", "#00838f", "#5c6bc0",
+    "#455a64", "#6d4c41", "#1565c0", "#e65100", "#4527a0"
+];
+
+function renderLineChart(currentYear) {
+    const filteredFamilies = families.filter(f => visibleLineFamilies.has(f));
+    // Show all years on x-axis but only data up to current year
+    const labels = allYears.map(y => String(y));
+
+    // Build data per visible family — null for future years so line stops
+    const datasetsData = filteredFamilies.map((fam) => {
+        const famIdx = families.indexOf(fam);
+        const data = allYears.map(year => {
+            if (year > currentYear) return null;
+            const d = stackedData[year] && stackedData[year][fam];
+            return d ? d.pctAbove : 0;
+        });
+        return { fam, famIdx, data };
+    });
+
+    if (lineChartInstance) {
+        lineChartInstance.data.labels = labels;
+
+        // Check if the number of datasets changed (filter toggle)
+        if (lineChartInstance.data.datasets.length !== datasetsData.length) {
+            lineChartInstance.data.datasets = datasetsData.map(({ fam, famIdx, data }) => ({
+                label: fam,
+                data: data,
+                borderColor: LINE_COLORS[famIdx % LINE_COLORS.length],
+                backgroundColor: LINE_COLORS[famIdx % LINE_COLORS.length],
+                borderWidth: 2,
+                pointRadius: 2,
+                pointHoverRadius: 5,
+                tension: 0.3,
+                fill: false,
+                spanGaps: false
+            }));
+            lineChartInstance.update("none");
+        } else {
+            // Same datasets, just update data in place
+            datasetsData.forEach(({ data }, idx) => {
+                lineChartInstance.data.datasets[idx].data = data;
+            });
+            lineChartInstance.update("none");
+        }
+        return;
+    }
+
+    const ctx = document.getElementById("lineChart").getContext("2d");
+
+    lineChartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: datasetsData.map(({ fam, famIdx, data }) => ({
+                label: fam,
+                data: data,
+                borderColor: LINE_COLORS[famIdx % LINE_COLORS.length],
+                backgroundColor: LINE_COLORS[famIdx % LINE_COLORS.length],
+                borderWidth: 2,
+                pointRadius: 2,
+                pointHoverRadius: 5,
+                tension: 0.3,
+                fill: false,
+                spanGaps: false
+            }))
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            interaction: {
+                mode: "index",
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: "right",
+                    labels: { font: { size: 10 }, boxWidth: 14, usePointStyle: true, pointStyle: "circle" }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) {
+                            return ctx.dataset.label + ": " + ctx.parsed.y.toFixed(1) + "%";
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: { display: true, text: "Year" }
+                },
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: { display: true, text: "% Assets with Score > 4" },
+                    ticks: { callback: function(v) { return v + "%"; } }
+                }
+            }
+        }
+    });
+}
+
+// SVG icons for each Gattungsname (black & white)
+const FAMILY_ICONS = {
+    "BAI": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h16"/><path d="M6 20v-8l-2 2"/><path d="M18 20v-8l2 2"/><path d="M8 12v8"/><path d="M16 12v8"/><path d="M9 8h6"/><path d="M12 4v4"/><circle cx="12" cy="3" r="1"/></svg>`,
+    "BZU": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18"/><path d="M7 8V5h10v3"/><path d="M12 5V3"/><circle cx="12" cy="2.5" r="0.5" fill="#222"/><path d="M8 15h2"/><path d="M14 15h2"/></svg>`,
+    "FB": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M2 18h20"/><path d="M2 14h20"/><path d="M5 14v4"/><path d="M9 14v4"/><path d="M13 14v4"/><path d="M17 14v4"/><path d="M21 14v4"/><path d="M4 14l2-4h12l2 4"/></svg>`,
+    "FS": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M5 21v-18"/><path d="M19 21v-18"/><path d="M5 5h14"/><path d="M5 9h14"/><path d="M8 5v-2"/><path d="M16 5v-2"/><path d="M12 9v-4"/><path d="M7 13l2-4"/><path d="M15 13l2-4"/></svg>`,
+    "GG": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="8" width="16" height="13" rx="1"/><path d="M4 8l8-5 8 5"/><rect x="9" y="14" width="6" height="7"/><rect x="6" y="10" width="3" height="3"/><rect x="15" y="10" width="3" height="3"/></svg>`,
+    "IB": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M2 18h20"/><path d="M4 18v-6"/><path d="M20 18v-6"/><path d="M4 12h16"/><path d="M4 12c0-4 3.5-7 8-7s8 3 8 7"/><path d="M8 12c0-2 1.8-4 4-4s4 2 4 4"/></svg>`,
+    "NNR": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M2 20h20"/><rect x="3" y="16" width="4" height="4" rx="0.5"/><rect x="8" y="14" width="3" height="6" rx="0.5"/><rect x="12" y="15" width="4" height="5" rx="0.5"/><rect x="17" y="13" width="4" height="7" rx="0.5"/><rect x="5" y="11" width="3" height="5" rx="0.5"/><rect x="10" y="9" width="4" height="5" rx="0.5"/><rect x="15" y="8" width="3" height="5" rx="0.5"/></svg>`,
+    "NS": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M12 21v-8"/><circle cx="12" cy="10" r="3"/><path d="M12 7V4"/><path d="M9 10H5"/><path d="M19 10h-4"/><path d="M9.5 7.5L7 5"/><path d="M14.5 7.5L17 5"/><path d="M10 21h4"/></svg>`,
+    "SAZ": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="2" width="6" height="16" rx="3"/><circle cx="12" cy="6" r="2"/><circle cx="12" cy="11" r="2"/><circle cx="12" cy="14.5" r="1" fill="#222"/><path d="M12 18v4"/><path d="M8 22h8"/></svg>`,
+    "TC": `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round"><path d="M12 21v-10"/><path d="M12 11l-5-3"/><path d="M12 11l5-3"/><path d="M12 11V4"/><path d="M9 4h6"/><path d="M7 8l-3-2"/><path d="M17 8l3-2"/><circle cx="12" cy="3" r="1"/></svg>`
+};
+
+function getIconForFamily(familyName) {
+    // Match by prefix (e.g., "BAI", "GG", etc.)
+    const prefix = familyName.split(" ")[0].replace("-", "").trim();
+    for (const key of Object.keys(FAMILY_ICONS)) {
+        if (prefix.startsWith(key) || key.startsWith(prefix)) {
+            return FAMILY_ICONS[key];
+        }
+    }
+    // Fallback: try contains
+    for (const key of Object.keys(FAMILY_ICONS)) {
+        if (familyName.includes(key)) {
+            return FAMILY_ICONS[key];
+        }
+    }
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8"><circle cx="12" cy="12" r="6"/><path d="M12 9v3"/><circle cx="12" cy="15" r="0.5" fill="#222"/></svg>`;
+}
+
+function renderIconRows() {
+    // Wait a tick for charts to finish layout
+    setTimeout(() => {
+        populateIcons("iconRow1", chartInstance);
+        populateIcons("iconRow2", stackedChartInstance);
+    }, 50);
+}
+
+function populateIcons(rowId, chart) {
+    const row = document.getElementById(rowId);
+    row.innerHTML = "";
+    if (!chart) return;
+
+    const filteredFamilies = families.filter(f => visibleFamilies.has(f));
+
+    // Align icon row with the chart area
+    const chartArea = chart.chartArea;
+    row.style.marginLeft = chartArea.left + "px";
+    row.style.marginRight = (chart.width - chartArea.right) + "px";
+    row.style.paddingTop = "6px";
+
+    filteredFamilies.forEach(fam => {
+        const svg = getIconForFamily(fam);
+        const el = document.createElement("div");
+        el.className = "family-icon";
+        el.innerHTML = svg + '<div class="icon-label">' + fam + '</div>';
+        el.title = fam;
+        row.appendChild(el);
+    });
+}
+
+function buildFilterButtons() {
+    const row = document.getElementById("filterRow");
+    row.innerHTML = "";
+
+    // Select All / Deselect All button
+    const allBtn = document.createElement("button");
+    allBtn.className = "select-all-btn";
+    allBtn.textContent = "Toggle All";
+    allBtn.addEventListener("click", function() {
+        if (visibleFamilies.size === families.length) {
+            visibleFamilies.clear();
+        } else {
+            visibleFamilies = new Set(families);
+        }
+        updateFilterButtonStates();
+        refreshBarCharts();
+    });
+    row.appendChild(allBtn);
+
+    families.forEach(fam => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn active";
+        btn.dataset.family = fam;
+        const icon = getIconForFamily(fam);
+        btn.innerHTML = icon + '<span>' + fam.split(" - ")[0] + '</span>';
+        btn.title = fam;
+        btn.addEventListener("click", function() {
+            if (visibleFamilies.has(fam)) {
+                visibleFamilies.delete(fam);
+            } else {
+                visibleFamilies.add(fam);
+            }
+            updateFilterButtonStates();
+            refreshBarCharts();
+        });
+        row.appendChild(btn);
+    });
+}
+
+function buildLineFilterButtons() {
+    const row = document.getElementById("lineFilterRow");
+    row.innerHTML = "";
+
+    const allBtn = document.createElement("button");
+    allBtn.className = "select-all-btn";
+    allBtn.textContent = "Toggle All";
+    allBtn.addEventListener("click", function() {
+        if (visibleLineFamilies.size === families.length) {
+            visibleLineFamilies.clear();
+        } else {
+            visibleLineFamilies = new Set(families);
+        }
+        updateLineFilterButtonStates();
+        refreshLineChart();
+    });
+    row.appendChild(allBtn);
+
+    families.forEach((fam, idx) => {
+        const famIdx = families.indexOf(fam);
+        const color = LINE_COLORS[famIdx % LINE_COLORS.length];
+        const btn = document.createElement("button");
+        btn.className = "filter-btn active";
+        btn.dataset.family = fam;
+        // Get the SVG icon and color it with the line color
+        let icon = getIconForFamily(fam);
+        icon = icon.replace(/stroke="#222"/g, 'stroke="' + color + '"').replace(/fill="#222"/g, 'fill="' + color + '"');
+        btn.innerHTML = icon + ' <span>' + fam.split(" - ")[0] + '</span>';
+        btn.title = fam;
+        btn.addEventListener("click", function() {
+            if (visibleLineFamilies.has(fam)) {
+                visibleLineFamilies.delete(fam);
+            } else {
+                visibleLineFamilies.add(fam);
+            }
+            updateLineFilterButtonStates();
+            refreshLineChart();
+        });
+        row.appendChild(btn);
+    });
+}
+
+function updateLineFilterButtonStates() {
+    const buttons = document.querySelectorAll("#lineFilterRow .filter-btn");
+    buttons.forEach(btn => {
+        if (visibleLineFamilies.has(btn.dataset.family)) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+}
+
+function refreshBarCharts() {
+    if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
+    if (stackedChartInstance) { stackedChartInstance.destroy(); stackedChartInstance = null; }
+    renderChart(currentYear);
+    renderStackedChart(currentYear);
+    renderIconRows();
+}
+
+function refreshLineChart() {
+    if (lineChartInstance) { lineChartInstance.destroy(); lineChartInstance = null; }
+    renderLineChart(currentYear);
+    // Also update bar chart highlighting
+    renderChart(currentYear);
+    renderStackedChart(currentYear);
+}
+
+function updateFilterButtonStates() {
+    const buttons = document.querySelectorAll("#filterRow .filter-btn");
+    buttons.forEach(btn => {
+        if (visibleFamilies.has(btn.dataset.family)) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+}
+
+function refreshAllCharts() {
+    refreshBarCharts();
+    refreshLineChart();
+}
+
+function spawnCoins() {
+    const coin = document.createElement("div");
+    coin.className = "coin";
+    coin.innerHTML = '<img src="img/goldvreneli.png" alt="Goldvreneli">';
+    document.body.appendChild(coin);
+    setTimeout(() => coin.remove(), 2600);
+}
+
+loadData();
+</script>
+</body>
+</html>
